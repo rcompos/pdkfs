@@ -1,0 +1,198 @@
+---
+
+# Keep the default Vagrant SSH key. It's publicly available and thus
+# "insecure", but these VMs aren't for production use and having a well-known
+# key allows for easy automation and documentation.
+ssh:
+  insert_key: false
+
+vms:
+
+  # NOTE: All `box:` declarations in this example point to vagrantcloud.com
+  # and require Vagrant 1.5.0 or newer to function.
+  - name: pe-201611-master
+    #debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-forward-console
+      - pe-memory-tuning2
+      - el-stop-firewall
+      - el-fix-path
+      - 4gb-memory
+      - base
+
+  - name: pe-201642-master 
+    debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-forward-console
+      - pe-memory-tuning2
+      - el-stop-firewall
+      - el-fix-path
+      - 4gb-memory
+      - base
+
+  - name: consul0
+    #debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - consul_server-role
+      - 256mb-memory
+      - base
+
+  - name: consul1
+    #debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - consul_server-role
+      - 256mb-memory
+      - base
+
+  - name: artifactory0
+    #debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - artifactory-role
+      - 1gb-memory
+      - base
+
+  - name: artifactory1
+    #debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - artifactory-role
+      - 1gb-memory
+      - base
+
+  - name: artifactory_ui0
+    #debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - artifactory-ui-role
+      - 1gb-memory
+      - base
+
+  - name: weblogic0
+    #debug-kit: true
+    box: autostructure-rhel6-nitc
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - weblogic11g-role
+      - 1gb-memory
+      - base
+
+  - name: weblogic1
+    #debug-kit: true
+    box: puppetlabs/centos-6.6-64-nocm
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - weblogic11g-role
+      - 1gb-memory
+      - base
+
+  - name: wlforms0
+    debug-kit: true
+    #box: puppetlabs/centos-7.2-64-nocm
+    box: rhel6-nitc-40g
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      #- weblogic11g-forms-role
+      - 4gb-memory
+      - base
+
+  - name: wlforms1
+    debug-kit: true
+    #box: puppetlabs/centos-7.2-64-nocm
+    box: rhel6-nitc-40g
+    roles:
+      - pe-201642-agent
+      - el-stop-firewall
+      - el-fix-path
+      #- weblogic11g-forms-role
+      - 4gb-memory
+      - base
+
+  - name: oraaud0
+    #debug-kit: true
+    #box: puppetlabs/centos-7.2-64-nocm
+    box: rhel6-nitc-40g
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - oraaud-role
+      - 2gb-memory
+      - base
+
+  - name: oradbclient0
+    #debug-kit: true
+    #box: puppetlabs/centos-7.2-64-nocm
+    box: rhel6-nitc-40g
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - oradbclient11g-role
+      - 4gb-memory
+      - base
+      
+  - name: rhel6vb0
+    #debug-kit: true
+    box: rhel6_nitc_40gb-virtualbox
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - 1gb-memory
+      - base
+
+  - name: rhel6vm0
+    #debug-kit: true
+    box: rhel6_nitc_40gb-vmware_fusion
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - 1gb-memory
+      - base
+
+  - name: rhel7s0
+    debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-201611-agent
+      - el-stop-firewall
+      - el-fix-path
+      - 1gb-memory
+      - base
+
+  - name: rhel7s1
+    debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-201642-agent
+      - el-stop-firewall
+      - el-fix-path
+      - 1gb-memory
+      - base
