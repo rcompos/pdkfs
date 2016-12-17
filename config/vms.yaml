@@ -114,10 +114,10 @@ vms:
     #box: puppetlabs/centos-7.2-64-nocm
     box: rhel6-nitc-40g
     roles:
-      - pe-201611-agent
+      - pe-201642-agent
       - el-stop-firewall
       - el-fix-path
-      #- weblogic11g-forms-role
+      - weblogic11g-forms-role
       - 4gb-memory
       - base
 
@@ -129,7 +129,7 @@ vms:
       - pe-201642-agent
       - el-stop-firewall
       - el-fix-path
-      #- weblogic11g-forms-role
+      - weblogic11g-forms-role
       - 4gb-memory
       - base
 
@@ -196,3 +196,14 @@ vms:
       - el-fix-path
       - 1gb-memory
       - base
+
+  - name: deb8s0 
+    debug-kit: true
+    box: puppetlabs/debian-8.2-64-nocm
+    roles:
+      - pe-201642-agent
+      - el-stop-firewall
+      - el-fix-path
+      - 1gb-memory
+      - base
+
