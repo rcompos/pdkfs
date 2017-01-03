@@ -10,6 +10,7 @@ vms:
 
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
   # and require Vagrant 1.5.0 or newer to function.
+  #
   - name: pe-201611-master
     #debug-kit: true
     box: puppetlabs/centos-7.2-64-nocm
@@ -29,7 +30,7 @@ vms:
       - pe-memory-tuning2
       - el-stop-firewall
       - el-fix-path
-      - 4gb-memory
+      - 6gb-memory
       - base
 
   - name: consul0
@@ -110,7 +111,7 @@ vms:
       - base
 
   - name: wlforms0
-    debug-kit: true
+    #debug-kit: true
     #box: puppetlabs/centos-7.2-64-nocm
     box: rhel6-nitc-40g
     roles:
@@ -122,7 +123,7 @@ vms:
       - base
 
   - name: wlforms1
-    debug-kit: true
+    #debug-kit: true
     #box: puppetlabs/centos-7.2-64-nocm
     box: rhel6-nitc-40g
     roles:
@@ -178,7 +179,7 @@ vms:
       - base
 
   - name: rhel7s0
-    debug-kit: true
+    #debug-kit: true
     box: puppetlabs/centos-7.2-64-nocm
     roles:
       - pe-201611-agent
@@ -188,7 +189,7 @@ vms:
       - base
 
   - name: rhel7s1
-    debug-kit: true
+    #debug-kit: true
     box: puppetlabs/centos-7.2-64-nocm
     roles:
       - pe-201642-agent
@@ -198,7 +199,7 @@ vms:
       - base
 
   - name: deb8s0 
-    debug-kit: true
+    #debug-kit: true
     box: puppetlabs/debian-8.2-64-nocm
     roles:
       - pe-201642-agent

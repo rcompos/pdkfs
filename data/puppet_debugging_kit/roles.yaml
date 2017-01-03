@@ -16,6 +16,7 @@ roles:
           vm_defaults:
             private_networks:
               - {auto_network: true}
+              #- {ip: "10.20.1.3", netmask: "255.255.255.0"}
 #            synced_folders:
 #              - host_path:  'nfsroot'
 #                guest_path: '/nfsroot'
@@ -251,6 +252,16 @@ roles:
           memsize:  4096
           numvcpus: 4
 
+  6gb-memory:
+    providers:
+      - type: virtualbox
+        customize:
+          - [modifyvm, !ruby/sym id, '--memory', 6144]
+      - type: vmware_fusion
+        vmx:
+          memsize:  6144
+          numvcpus: 4
+
   2gb-memory-gui:
     providers:
       - type: virtualbox
@@ -273,6 +284,18 @@ roles:
         gui: true
         vmx:
           memsize:  4096
+          numvcpus: 2
+
+  6gb-memory-gui:
+    providers:
+      - type: virtualbox
+        gui: true
+        customize:
+          - [modifyvm, !ruby/sym id, '--memory', 6144]
+      - type: vmware_fusion
+        gui: true
+        vmx:
+          memsize:  6144
           numvcpus: 2
 
   # Puppet Open Source Roles
