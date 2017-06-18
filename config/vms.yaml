@@ -99,6 +99,55 @@ vms:
       - 1gb-memory
       - base
 
+  #- name: weblogic0
+  #  #debug-kit: true
+  #  #box: autostructure-rhel6-nitc
+  #  box: puppetlabs/centos-6.6-64-nocm
+  #  roles:
+  #    - pe-201642-agent
+  #    - el-stop-firewall
+  #    - el-fix-path
+  #    - weblogic11g-role
+  #    - 1gb-memory
+  #    - base
+
+  #- name: wlforms0
+  #  #debug-kit: true
+  #  #box: puppetlabs/centos-7.2-64-nocm
+  #  #box: rhel6_nitc_40gb-virtualbox
+  #  box: puppetlabs/centos-6.6-64-nocm
+  #  roles:
+  #    - pe-201642-agent
+  #    - el-stop-firewall
+  #    - el-fix-path
+  #    - oracle_weblogic_12c_adf-role
+  #    - 4gb-memory
+  #    - base
+
+  #  - name: oraaud0
+  ##debug-kit: true
+  ##box: puppetlabs/centos-7.2-64-nocm
+  #box: rhel6-nitc-40g
+  #roles:
+  #  - pe-201611-agent
+  #  - el-stop-firewall
+  #  - el-fix-path
+  #  - oraaud-role
+  #  - 2gb-memory
+  #  - base
+
+  #- name: oradbclient0
+  #debug-kit: true
+  #box: puppetlabs/centos-7.2-64-nocm
+  #box: rhel6-nitc-40g
+  #roles:
+  #  - pe-201611-agent
+  #  - el-stop-firewall
+  #  - el-fix-path
+  #  - oradbclient11g-role
+  #  - 4gb-memory
+  #  - base
+      
   #- name: rhel6vb0
   #  #debug-kit: true
   #  box: rhel6_nitc_40gb-virtualbox
