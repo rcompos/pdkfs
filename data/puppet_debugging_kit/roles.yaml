@@ -264,8 +264,8 @@ roles:
         vmx:
           memsize:  4096
           numvcpus: 4
-          ethernet0.pcislotnumber: 32
-          ethernet1.pcislotnumber: 33
+          #ethernet0.pcislotnumber: 32
+          #ethernet1.pcislotnumber: 33
 
   2gb-memory-gui:
     providers:
@@ -277,6 +277,18 @@ roles:
         gui: true
         vmx:
           memsize: 2048
+          numvcpus: 2
+
+  4gb-memory-ports:
+    forwarded_ports:
+      - {guest: 80,   host: 8880,  auto_correct: true, id: http}
+    providers:
+      - type: virtualbox
+        customize:
+          - [modifyvm, !ruby/sym id, '--memory', 4096]
+      - type: vmware_fusion
+        vmx:
+          memsize:  4096
           numvcpus: 2
 
   4gb-memory-gui:

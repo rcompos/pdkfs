@@ -185,7 +185,17 @@ vms:
       - pe-201642-agent
       - el-stop-firewall
       - el-fix-path
-      - 1gb-memory
+      - 2gb-memory-gui
+      - base
+
+  - name: openstack0 
+    #debug-kit: true
+    box: puppetlabs/centos-7.2-64-nocm
+    roles:
+      - pe-201642-agent
+      - el-stop-firewall
+      - el-fix-path
+      - 4gb-memory
       - base
 
   - name: jenkins0 
